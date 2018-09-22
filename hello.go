@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 	"time"
+
+	"github.com/s-yk/golang-study/examples"
 )
 
 var funcMap = map[string]interface{}{
@@ -13,6 +15,8 @@ var funcMap = map[string]interface{}{
 	"for":       forexample,
 	"if":        ifexample,
 	"switch":    switchexample,
+	"array":     examples.Array,
+	"slice":     examples.Slice,
 }
 
 func main() {
@@ -23,8 +27,8 @@ func main() {
 	}
 
 	arg := os.Args[1]
-	targetFunc, isExist := funcMap[arg]
-	if !isExist {
+	targetFunc, exist := funcMap[arg]
+	if !exist {
 		fmt.Println("wrong argument")
 		return
 	}
